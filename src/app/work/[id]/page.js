@@ -63,14 +63,15 @@ export default async function CaseStudyPage({ params }) {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
-              {project.github && (
+              {project.socials?.map((social) => (
                 <a
-                  href={project.github}
+                  key={social.platform}
+                  href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-black border-2 border-[#4d4d4d] rounded-full px-5 py-3 hover:border-[#6d6d6d] transition-all duration-300 group"
                 >
-                  <span className="text-[#cecece] text-sm font-semibold">GitHub</span>
+                  <span className="text-[#cecece] text-sm font-semibold">{social.platform}</span>
                   <div className="w-7 h-7 bg-[#d9d9d9] rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
                     <svg
                       className="w-3 h-3 text-black -rotate-45"
@@ -87,16 +88,14 @@ export default async function CaseStudyPage({ params }) {
                     </svg>
                   </div>
                 </a>
-              )}
+              ))}
               {project.liveLink && (
                 <a
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#d9d9d9] text-black text-sm font-semibold px-5 py-3 hover:bg-white transition-colors"
-                >
-                  Live Link
-                </a>
+                  className="inline-flex items-center bg-[#d9d9d9] text-black text-sm font-semibold px-7 py-3 hover:bg-white transition-colors"
+                >Live Link</a>
               )}
             </div>
 
@@ -182,7 +181,7 @@ export default async function CaseStudyPage({ params }) {
 
             {/* Work With Me Button */}
             <Link
-              href="mailto:your@email.com"
+              href="mailto:revanshu444@gmail.com"
               className="inline-flex items-center gap-3 bg-black border border-[#4d4d4d] rounded-full px-6 py-4 hover:border-[#6d6d6d] transition-all duration-300 group"
             >
               <span className="text-[#cecece] text-sm font-medium">Work with me</span>

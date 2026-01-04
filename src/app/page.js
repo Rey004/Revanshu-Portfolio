@@ -7,11 +7,11 @@ export default function Home() {
     <main className="relative min-h-screen bg-[#060606] overflow-hidden">
       {/* Spotlight Effect */}
       <div 
-        className="absolute lg:top-[-300] left-1/2 -translate-x-1/2 w-[1000px] md:w-[500px] lg:w-[2000px] h-[300px] md:h-[450px] lg:h-[600px] sm:opacity-0 opacity-80 blur-3xl pointer-events-none"
+        className="absolute lg:top-[-300] left-1/2 -translate-x-1/2 w-[1000px] md:w-[500px] lg:w-[2000px] h-[300px] md:h-[450px] lg:h-[600px] md:opacity-100 opacity-80 blur-lg pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 40%, transparent 70%)' }}
       />
       
-      {/* Secondary spotlight glow */}
+      {/* Secondary spotlight glow */} 
       <div 
         className="absolute -top-[80px] md:-top-[150px] lg:-top-[200px] left-1/2 -translate-x-1/2 w-[250px] md:w-[400px] lg:w-[600px] h-[180px] md:h-[300px] lg:h-[400px] rounded-full blur-[50px] md:blur-[80px] lg:blur-[100px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)' }}

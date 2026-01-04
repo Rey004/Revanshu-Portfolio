@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ProjectCard({ project }) {
   return (
-    <Link href={`/work/${project.id}`} className="block group">
+    <Link href={`/work/${project.id}`} target="_blank" rel="noopener noreferrer" className="block group">
       <div className="relative bg-transparent border border-[#4d4d4d] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#6d6d6d] hover:scale-[1.02]">
         {/* Thumbnail */}
         <div className="relative aspect-16/10 overflow-hidden">

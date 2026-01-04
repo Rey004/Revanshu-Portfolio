@@ -24,8 +24,11 @@ const zenDots = Zen_Dots({
 });
 
 export const metadata = {
-  title: "REY - Designer. Developer. Builder.",
+  title: "Revanshu | Portfolio",
   description: "I do web design, development & visuals for modern brands and creators.",
+  icons: {
+    icon: "/images/fav.webp",
+  },
 };
 
 export default function RootLayout({ children }) {
