@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#060606] overflow-hidden">
+    <main className="relative min-h-screen bg-[#000000] overflow-hidden">
       {/* Spotlight Effect */}
       <div 
         className="absolute lg:top-[-300] left-1/2 -translate-x-1/2 w-[1000px] md:w-[500px] lg:w-[2000px] h-[300px] md:h-[450px] lg:h-[600px] md:opacity-100 opacity-80 blur-lg pointer-events-none"
