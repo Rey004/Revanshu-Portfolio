@@ -112,3 +112,20 @@ body {
 .bg-gradient-radial {
   background: radial-gradient(circle, var(--tw-gradient-stops));
 }
+
+/* Page Transition Grid */
+.transition-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.transition-block {
+  position: absolute;
+  background: #060606;
+  opacity: 0;
+}

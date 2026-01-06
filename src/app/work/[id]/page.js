@@ -207,7 +207,7 @@ export default async function CaseStudyPage({ params }) {
           <div className="space-y-6">
             {project.images.slice(1).map((image, index) => (
               <div
-                key={index}
+                key={image}
                 className="relative aspect-video rounded-2xl overflow-hidden border border-[#4d4d4d]"
               >
                 <Image
@@ -215,6 +215,7 @@ export default async function CaseStudyPage({ params }) {
                   alt={`${project.title} screenshot ${index + 2}`}
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
             ))}
