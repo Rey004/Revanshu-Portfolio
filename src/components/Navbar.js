@@ -71,6 +71,7 @@ export default function Navbar() {
               { href: "/", label: "Home", delay: "delay-100" },
               { href: "/work", label: "Work", delay: "delay-200" },
               { href: "/about", label: "About", delay: "delay-300" },
+              { href: "/contact", label: "Contact", delay: "delay-400" },
             ].map((link) => (
               <Link
                 key={link.href}
@@ -88,9 +89,9 @@ export default function Navbar() {
           </div>
 
           {/* Bottom Section - Social Links */}
-          <div className={`absolute bottom-8 md:bottom-12 flex items-center gap-6 transition-all duration-500 ${isMenuOpen ? 'opacity-100 translate-y-0 delay-500' : 'opacity-0 translate-y-4'}`}>
+          <div className={`absolute bottom-8 md:bottom-12 flex items-center gap-4 md:gap-6 flex-wrap justify-center transition-all duration-500 ${isMenuOpen ? 'opacity-100 translate-y-0 delay-500' : 'opacity-0 translate-y-4'}`}>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/Rey004"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#9a9a9a] hover:text-white transition-colors text-sm font-medium"
@@ -99,7 +100,7 @@ export default function Navbar() {
             </a>
             <span className="w-1 h-1 bg-[#4d4d4d] rounded-full"></span>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/revanshu"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#9a9a9a] hover:text-white transition-colors text-sm font-medium"
@@ -108,7 +109,25 @@ export default function Navbar() {
             </a>
             <span className="w-1 h-1 bg-[#4d4d4d] rounded-full"></span>
             <a
-              href="mailto:your@email.com"
+              href="https://instagram.com/revanshu_04"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#9a9a9a] hover:text-white transition-colors text-sm font-medium"
+            >
+              Instagram
+            </a>
+            <span className="w-1 h-1 bg-[#4d4d4d] rounded-full"></span>
+            <a
+              href="https://x.com/Revanshu04"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#9a9a9a] hover:text-white transition-colors text-sm font-medium"
+            >
+              X
+            </a>
+            <span className="w-1 h-1 bg-[#4d4d4d] rounded-full"></span>
+            <a
+              href="mailto:revanshu444@gmail.com"
               className="text-[#9a9a9a] hover:text-white transition-colors text-sm font-medium"
             >
               Email
