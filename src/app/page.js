@@ -67,7 +67,7 @@ export default function Home() {
       <section className="relative top-[-80px] z-30 flex flex-col items-center justify-center min-h-screen px-4 md:px-6 text-center">
         {/* Greeting */}
         <p className="text-white text-base md:text-md font-bold mb-3 md:mb-4">
-          Hey There, I'm Revanshu 👋
+          Hey There, I&apos;m Revanshu 👋
         </p>
 
         {/* Main Heading */}

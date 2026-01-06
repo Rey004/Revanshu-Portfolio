@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className="space-y-6">
             <p className="text-[#9a9a9a] text-sm uppercase tracking-widest">About Me</p>
             <h1 className="font-zen-dots text-3xl md:text-4xl lg:text-5xl bg-linear-to-r from-[#999999] via-white to-[#999999] bg-clip-text text-transparent leading-tight">
-              I'm Revanshu
+              I&apos;m Revanshu
             </h1>
             <p className="text-[#b1b1b1] text-base md:text-lg leading-relaxed max-w-lg">
               A designer & developer who enjoys building clean, functional products. I focus on creating things that work well and look good doing it.
@@ -77,7 +77,7 @@ export default function AboutPage() {
           </div>
           <div className="flex items-start gap-4">
             <div className="w-2 h-2 mt-2 bg-[#d9d9d9] rounded-full shrink-0" />
-            <p className="text-[#b1b1b1] text-base">I focus on <span className="text-white font-medium">usability and aesthetics equally</span> — one doesn't compromise the other.</p>
+            <p className="text-[#b1b1b1] text-base">I focus on <span className="text-white font-medium">usability and aesthetics equally</span> — one doesn&apos;t compromise the other.</p>
           </div>
         </div>
       </section>
@@ -98,10 +98,10 @@ export default function AboutPage() {
       <section className="relative z-10 py-20 px-6 md:px-20 lg:px-32 border-t border-[#2a2a2a]">
         <div className="max-w-2xl">
           <h2 className="font-zen-dots text-2xl md:text-3xl lg:text-4xl bg-linear-to-r from-[#999999] via-white to-[#999999] bg-clip-text text-transparent mb-4">
-            Let's Build Something
+            Let&apos;s Build Something
           </h2>
           <p className="text-[#9a9a9a] text-base mb-8">
-            Got a project in mind? I'm always open to discussing new ideas and opportunities.
+            Got a project in mind? I&apos;m always open to discussing new ideas and opportunities.
           </p>
           
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -110,7 +110,7 @@ export default function AboutPage() {
               href="mailto:revanshu444@gmail.com"
               className="flex items-center gap-3 bg-black border border-[#4d4d4d] rounded-full px-6 py-3 hover:border-[#6d6d6d] transition-all duration-300 group"
             >
-              <span className="text-[#cecece] text-sm font-medium">Let's Work</span>
+              <span className="text-[#cecece] text-sm font-medium">Let&apos;s Work</span>
               <div className="w-7 h-7 bg-[#d9d9d9] rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
                 <svg
                   className="w-3 h-3 text-black -rotate-45"

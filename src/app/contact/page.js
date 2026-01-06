@@ -19,10 +19,10 @@ export default function ContactPage() {
           <div className="mb-16">
             <p className="text-[#9a9a9a] text-sm uppercase tracking-widest mb-4">Contact</p>
             <h1 className="font-zen-dots text-3xl md:text-4xl lg:text-5xl bg-linear-to-r from-[#999999] via-white to-[#999999] bg-clip-text text-transparent leading-tight mb-6">
-              Let's Talk
+              Let&apos;s Talk
             </h1>
             <p className="text-[#b1b1b1] text-base md:text-lg max-w-lg">
-              Have a project in mind or just want to chat? I'm always open to new opportunities and collaborations.
+              Have a project in mind or just want to chat? I&apos;m always open to new opportunities and collaborations.
             </p>
           </div>
 
@@ -56,7 +56,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <h3 className="text-[#d3d3d3] font-semibold text-lg mb-2">LinkedIn</h3>
-              <p className="text-[#9a9a9a] text-sm mb-4">Let's connect professionally.</p>
+              <p className="text-[#9a9a9a] text-sm mb-4">Let&apos;s connect professionally.</p>
               <span className="text-white text-sm font-medium group-hover:underline">Connect with me →</span>
             </a>
 

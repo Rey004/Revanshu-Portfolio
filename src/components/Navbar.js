@@ -9,22 +9,27 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-8 lg:px-20 py-4 md:py-6">
-        <Link href="/" className="font-zen-dots text-2xl md:text-3xl lg:text-4xl text-white hover:opacity-80 transition-opacity">
-          REY
-        </Link>
+      {/* Navbar with fade effect */}
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <nav className="flex items-center justify-between px-6 md:px-8 lg:px-20 py-4 md:py-6">
+          <Link href="/" className="font-zen-dots text-2xl md:text-3xl lg:text-4xl text-white hover:opacity-80 transition-opacity">
+            REY
+          </Link>
 
-        {/* Hamburger Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="relative flex flex-col justify-center items-center gap-1.5 w-10 h-10 md:w-12 md:h-12 hover:opacity-80 transition-all duration-300"
-          aria-label="Toggle menu"
-        >
-          <span className={`w-5 md:w-6 h-0.5 bg-white rounded-full transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`w-5 md:w-6 h-0.5 bg-white rounded-full transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`w-5 md:w-6 h-0.5 bg-white rounded-full transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-        </button>
-      </nav>
+          {/* Hamburger Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="relative flex flex-col justify-center items-center gap-1.5 w-10 h-10 md:w-12 md:h-12 hover:opacity-80 transition-all duration-300"
+            aria-label="Toggle menu"
+          >
+            <span className={`w-5 md:w-6 h-0.5 bg-white rounded-full transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`w-5 md:w-6 h-0.5 bg-white rounded-full transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`w-5 md:w-6 h-0.5 bg-white rounded-full transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          </button>
+        </nav>
+        {/* Fade gradient at bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060606] via-[#060606]/80 to-transparent pointer-events-none -z-10" />
+      </div>
 
       {/* Full Screen Menu Overlay */}
       <div className={`fixed inset-0 z-[100] transition-all duration-500 ${isMenuOpen ? 'visible' : 'invisible'}`}>
