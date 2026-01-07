@@ -95,7 +95,18 @@ export default function Loader({ onComplete }) {
         ease: "power2.inOut",
       });
 
-      // Transition blocks fade out (same as page transition)
+      // Change blocks to black then fade out
+      tl.to(
+        blocksRef.current,
+        {
+          background: "#000000",
+          duration: 0.01,
+          stagger: { amount: 0.3, from: "random" },
+        },
+        "-=0.2"
+      );
+
+      // Transition blocks fade out
       tl.to(
         blocksRef.current,
         {
@@ -104,7 +115,7 @@ export default function Loader({ onComplete }) {
           ease: "power2.inOut",
           stagger: { amount: 0.5, from: "random" },
         },
-        "-=0.2"
+        "-=0.1"
       );
 
       // Hide entire loader
@@ -161,7 +172,7 @@ export default function Loader({ onComplete }) {
           />
           <div
             className="absolute inset-4 rounded-full border border-white/10 animate-spin"
-            style={{ animationDuration: "5s", animationDirection: "reverse" }}
+            style={{ animationDuration: "4s", animationDirection: "reverse" }}
           />
         </div>
 
@@ -185,15 +196,6 @@ export default function Loader({ onComplete }) {
           </p>
         </div>
       </div>
-
-      {/* Ambient Spotlight */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)",
-        }}
-      />
     </div>
   );
 }

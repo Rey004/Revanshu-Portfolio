@@ -17,6 +17,17 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  cursor: url('/images/pointer.cur'), auto;
+}
+
+/* Custom Cursor */
+*, *::before, *::after {
+  cursor: inherit;
+}
+
+a, button, [role="button"], input[type="submit"], input[type="button"], 
+a *, button *, [role="button"] *, input[type="submit"] *, input[type="button"] * {
+  cursor: url('/images/link.cur'), pointer !important;
 }
 
 /* Custom Font Classes */
