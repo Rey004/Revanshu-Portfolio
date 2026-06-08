@@ -74,7 +74,7 @@ export default async function CaseStudyPage({ params }) {
                   <span className="text-[#cecece] text-sm font-semibold">{social.platform}</span>
                   <div className="w-7 h-7 bg-[#d9d9d9] rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
                     <svg
-                      className="w-3 h-3 text-black -rotate-45"
+                      className="w-3 h-3 text-black transition-transform duration-300 -rotate-45 group-hover:rotate-45"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -187,7 +187,7 @@ export default async function CaseStudyPage({ params }) {
               <span className="text-[#cecece] text-sm font-medium">Work with me</span>
               <div className="w-8 h-8 bg-[#d9d9d9] rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
                 <svg
-                  className="w-3.5 h-3.5 text-black -rotate-45"
+                  className="w-3.5 h-3.5 text-black transition-transform duration-300 -rotate-45 group-hover:rotate-45"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

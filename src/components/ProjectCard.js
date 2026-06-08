@@ -31,7 +31,7 @@ export default function ProjectCard({ project }) {
             <span className="text-[#cecece] text-xs font-medium">View More</span>
             <div className="w-5 h-5 bg-[#d9d9d9] rounded-full flex items-center justify-center">
               <svg
-                className="w-2.5 h-2.5 text-black -rotate-45"
+                className="w-2.5 h-2.5 text-black transition-transform duration-300 -rotate-45 group-hover:rotate-45"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

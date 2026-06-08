@@ -90,7 +90,7 @@ export default function Home() {
             <span className="text-[#cecece] text-xs md:text-2xs font-medium">View Work</span>
             <div className="w-6 md:w-7 h-6 md:h-7 bg-[#d9d9d9] rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
               <svg
-                className="w-2.5 md:w-3 h-2.5 md:h-3 text-black -rotate-45"
+                className="w-2.5 md:w-3 h-2.5 md:h-3 text-black transition-transform duration-300 -rotate-45 group-hover:rotate-45"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
