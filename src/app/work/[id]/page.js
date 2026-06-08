@@ -181,7 +181,7 @@ export default async function CaseStudyPage({ params }) {
 
             {/* Work With Me Button */}
             <Link
-              href="mailto:revanshu444@gmail.com"
+              href="/about"
               className="inline-flex items-center gap-3 bg-black border border-[#4d4d4d] rounded-full px-6 py-4 hover:border-[#6d6d6d] transition-all duration-300 group"
             >
               <span className="text-[#cecece] text-sm font-medium">Work with me</span>

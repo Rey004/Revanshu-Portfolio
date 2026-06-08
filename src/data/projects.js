@@ -4,11 +4,11 @@ export const projects = [
     title: "Code Vantage",
     subtitle: "3D Interactive Agency Website",
     category: ["Favourites", "Websites"],
-    thumbnail: "/images/projects/code-vantage-thumb.webp",
+    thumbnail: "/images/projects/code-vantage/code-vantage-thumb.webp",
     images: [
-      "/images/projects/code-vantage-thumb.webp",
-      "/images/projects/cv1.webp",
-      "/images/projects/cv2.webp"
+      "/images/projects/code-vantage/code-vantage-thumb.webp",
+      "/images/projects/code-vantage/cv1.webp",
+      "/images/projects/code-vantage/cv2.webp"
     ],
     roles: ["Web Design", "Development"],
     tools: ["Figma", "Spline", "React"],
@@ -36,12 +36,12 @@ If I were to revisit this project, I'd push performance testing even further and
   id: "freak-lifestyle",
   title: "Freak Lifestyle",
   subtitle: "Streetwear Clothing Brand",
-  category: ["Favourites","Brands"],
-  thumbnail: "/images/projects/fl.webp",
+  category: ["Favourites", "Brand/Products"],
+  thumbnail: "/images/projects/freak-lifestyle/fl.webp",
   images: [
-    "/images/projects/fl1.webp",
-    "/images/projects/fl2.webp",
-    "/images/projects/fl3.webp"
+    "/images/projects/freak-lifestyle/fl1.webp",
+    "/images/projects/freak-lifestyle/fl2.webp",
+    "/images/projects/freak-lifestyle/fl3.webp"
   ],
   roles: ["Design", "Development", "Branding", "Operations"],
   tools: ["Photoshop", "WordPress"],
@@ -68,11 +68,11 @@ This project taught me end-to-end brand building—from product design and opera
   title: "Vetric Website",
   subtitle: "Minimal Agency Website Concept",
   category: ["Websites"],
-  thumbnail: "/images/projects/vw.webp",
+  thumbnail: "/images/projects/vetric-website/vw.webp",
   images: [
-    "/images/projects/vw.webp",
-    "/images/projects/vw1.webp",
-    "/images/projects/vw2.webp"
+    "/images/projects/vetric-website/vw.webp",
+    "/images/projects/vetric-website/vw1.webp",
+    "/images/projects/vetric-website/vw2.webp"
   ],
   roles: ["Development"],
   tools: ["React"],
@@ -98,11 +98,11 @@ Through this build, I gained clarity on structuring state management for UI mode
   title: "Food Truck Website",
   subtitle: "Energetic Brand Website Concept",
   category: ["Design"],
-  thumbnail: "/images/projects/ft.webp",
+  thumbnail: "/images/projects/food-truck/ft.webp",
   images: [
-    "/images/projects/ft.webp",
-    "/images/projects/ft1.webp",
-    "/images/projects/ft2.webp"
+    "/images/projects/food-truck/ft.webp",
+    "/images/projects/food-truck/ft1.webp",
+    "/images/projects/food-truck/ft2.webp"
   ],
   roles: ["Web Design"],
   tools: ["Figma"],
@@ -121,11 +121,42 @@ Special attention was given to using brand elements consistently across the layo
   learnings: `The final outcome was a distinct and high-energy website concept that clearly reflects the brand’s identity. The project reinforced how strong visual storytelling and brand alignment can elevate even simple layouts.
 
 On a personal level, this design helped me step outside my comfort zone and experiment with a different aesthetic. I learned how to control visual energy without sacrificing usability, and how adapting design decisions to a brand’s personality leads to more authentic and impactful results.`
-}
+},
+{
+  id: "dinodash",
+  title: "DinoDash",
+  subtitle: "Chrome New Tab Dino Runner",
+  category: ["Favourites", "Websites", "Brand/Products"],
+  thumbnail: "/images/projects/dinodash/dinodash-thumb.webp",
+  images: [
+    "/images/projects/dinodash/dinodash-thumb.webp",
+    "/images/projects/dinodash/dd1.webp",
+    "/images/projects/dinodash/dd2.webp"
+  ],
+  roles: ["Design", "Development"],
+  tools: ["Chrome Extension APIs"],
+  timeline: "Ongoing",
+  type: "Personal",
+  socials: [
+    { platform: "Website", url: "https://use-dino-dash.vercel.app" }
+  ],
+  liveLink: "https://chromewebstore.google.com/detail/dinodash-interactive-new/biplgpkmcbidebfejmdkgppgifjpdggi?hl=en&authuser=0",
 
+  problems: `Chrome's default new tab page is uninspiring and static—a missed opportunity for both productivity and delight. The goal was to build a privacy-first, offline-ready Chrome Extension that reimagines this space with an interactive dino runner game, custom themes, smart history, bookmarks, and detailed browsing analytics.
+
+The core technical challenge lay in creating a performance-driven, high-frame-rate canvas game within an extension environment. We had to ensure a consistent, deterministic 60fps physics simulation across varied host machines without bloated dependencies. Additionally, handling browsing history categorization, favorites categorization, and storing persistent high scores entirely client-side (via localStorage) required solid local state design to guarantee data privacy and instantaneous responsiveness.`,
+
+  solutions: `To address performance, we designed a custom 2D rendering pipeline that runs at a deterministic 60fps. By utilizing modular procedural obstacle generation, each run feels fresh yet maintains seeding capability for replays. To respect user privacy completely, the extension relies on zero external servers—all analytics, history indexing, and game scores are processed and stored locally on the user's device using local APIs.
+
+We built a highly responsive, minimal dashboard styling that adapts dynamically based on user themes. Handcrafted options like 'Dark Valley' (neon city aesthetics) and 'Mystic Forest' (nature atmosphere) completely transform the visual color space of all widgets, creating a cohesive, immersive new tab experience. Bookmarks and search utilities were integrated natively with quick arrow key controls to transition from standard searching to game runner sprints in one keystroke.`,
+
+  learnings: `This project reinforced the power of client-side-only execution. Building a complex, interactive extension without any external database dependencies taught me how to maximize the utility of Web Extension APIs, Chrome's local storage, and efficient canvas rendering.
+
+If I were to rebuild DinoDash, I would expand the community voting mechanics and introduce web-monetized customizable visual components. Most of all, it proved that the new tab page can be more than a utility—it can breathe life into a browser.`
+}
 ];
 
-export const categories = ["All", "Favourites", "Brands", "Websites", "Design"];
+export const categories = ["All", "Favourites", "Brand/Products", "Websites", "Design"];
 
 export function getProjectById(id) {
   return projects.find(project => project.id === id);
