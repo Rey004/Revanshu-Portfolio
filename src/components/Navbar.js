@@ -30,11 +30,17 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-xs uppercase tracking-widest font-medium transition-all duration-300 py-1.5 ${
+                  className={`group relative text-xs uppercase tracking-widest font-medium transition-all duration-300 py-1.5 ${
                     isActive ? "text-white" : "text-[#9a9a9a] hover:text-white"
                   }`}
                 >
-                  {link.label}
+                  <span className="relative">
+                    {link.label}
+                    {/* Hover and Active Underline */}
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}></span>
+                  </span>
                 </Link>
               );
             })}
@@ -118,7 +124,10 @@ export default function Navbar() {
       </div>
 
       {/* Full Screen Menu Overlay */}
-      <div className={`fixed inset-0 z-[100] transition-all duration-500 ${isMenuOpen ? 'visible' : 'invisible'}`}>
+      <div 
+        className={`fixed inset-0 z-[100] transition-all duration-500 ${isMenuOpen ? 'visible' : 'invisible'}`}
+        onClick={() => setIsMenuOpen(false)}
+      >
         {/* Background with texture */}
         <div 
           className={`absolute inset-0 bg-[#060606] transition-opacity duration-500 ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
@@ -145,7 +154,10 @@ export default function Navbar() {
 
         {/* Close Button */}
         <button
-          onClick={() => setIsMenuOpen(false)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsMenuOpen(false);
+          }}
           className={`absolute top-4 md:top-6 right-6 md:right-8 lg:right-20 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 hover:opacity-80 transition-all duration-300 ${isMenuOpen ? 'opacity-100 delay-300' : 'opacity-0 pointer-events-none'}`}
           aria-label="Close menu"
         >
@@ -157,25 +169,32 @@ export default function Navbar() {
         {/* Menu Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full">
           {/* Navigation Links */}
-          <div className="flex flex-col items-center gap-6 md:gap-8">
+          <div className="flex flex-col items-center gap-6 md:gap-8" onClick={(e) => e.stopPropagation()}>
             {[
               { href: "/", label: "Home", delay: "delay-100" },
               { href: "/work", label: "Work", delay: "delay-200" },
               { href: "/about", label: "About", delay: "delay-300" },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`group relative text-4xl md:text-5xl lg:text-6xl font-zen-dots text-[#9a9a9a] hover:text-white transition-all duration-300 ${isMenuOpen ? `opacity-100 translate-y-0 ${link.delay}` : 'opacity-0 translate-y-8'}`}
-              >
-                <span className="relative">
-                  {link.label}
-                  {/* Hover underline */}
-                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-            ))}
+            ].map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`group relative text-4xl md:text-5xl lg:text-6xl font-zen-dots transition-all duration-300 ${
+                    isActive ? "text-white" : "text-[#9a9a9a] hover:text-white"
+                  } ${isMenuOpen ? `opacity-100 translate-y-0 ${link.delay}` : 'opacity-0 translate-y-8'}`}
+                >
+                  <span className="relative">
+                    {link.label}
+                    {/* Hover and Active Underline */}
+                    <span className={`absolute -bottom-2 left-0 h-0.5 bg-white transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}></span>
+                  </span>
+                </Link>
+              );
+            })}
 
             {/* Resume Button inside Hamburger Menu */}
             <a
@@ -201,7 +220,10 @@ export default function Navbar() {
           </div>
 
           {/* Bottom Section - Social Icons */}
-          <div className={`absolute bottom-8 md:bottom-12 flex items-center gap-4 md:gap-5 justify-center transition-all duration-500 ${isMenuOpen ? 'opacity-100 translate-y-0 delay-500' : 'opacity-0 translate-y-4'}`}>
+          <div 
+            className={`absolute bottom-8 md:bottom-12 flex items-center gap-4 md:gap-5 justify-center transition-all duration-500 ${isMenuOpen ? 'opacity-100 translate-y-0 delay-500' : 'opacity-0 translate-y-4'}`}
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* GitHub */}
             <a
               href="https://github.com/Rey004"

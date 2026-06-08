@@ -19,6 +19,25 @@ export default function AboutPage() {
               <h1 className="font-zen-dots text-3xl md:text-4xl lg:text-5xl bg-linear-to-r from-[#999999] via-white to-[#999999] bg-clip-text text-transparent leading-tight">
                 I&apos;m Revanshu
               </h1>
+              
+              {/* Mobile/Tablet Profile Image */}
+              <div className="block lg:hidden my-6">
+                <div className="relative aspect-[3/4] w-full max-w-[280px] sm:max-w-[320px] rounded-2xl overflow-hidden border border-[#4d4d4d] bg-linear-to-b from-[#161616] to-[#0c0c0c] group/img shadow-2xl transition-all duration-500 hover:border-[#6d6d6d] hover:scale-[1.02]">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-[#d9d9d9]/10 to-transparent blur-xl opacity-50 group-hover/img:opacity-100 transition-opacity duration-700" />
+                  <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-[#555] group-hover/img:border-[#d9d9d9] transition-colors duration-300 z-20" />
+                  <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-[#555] group-hover/img:border-[#d9d9d9] transition-colors duration-300 z-20" />
+                  <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#555] group-hover/img:border-[#d9d9d9] transition-colors duration-300 z-20" />
+                  <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-[#555] group-hover/img:border-[#d9d9d9] transition-colors duration-300 z-20" />
+                  <Image
+                    src="/images/profile.webp"
+                    alt="Revanshu Profile Image"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover/img:scale-105 z-10"
+                    priority
+                  />
+                </div>
+              </div>
+
               <p className="text-[#b1b1b1] text-base md:text-lg leading-relaxed max-w-xl">
                 A 20-year-old Full Stack Developer and creator based in India. I am always tinkering and trying to build fun things that can wow people. I specialize in bridging the gap between design, technology, and business to build interfaces that feel different.
               </p>
@@ -164,7 +183,7 @@ export default function AboutPage() {
           </div>
 
           {/* Right: Profile Image */}
-          <div className="lg:col-span-5 pt-8 lg:pt-0 flex justify-center">
+          <div className="lg:col-span-5 pt-8 lg:pt-0 hidden lg:flex justify-center">
             <div className="relative aspect-[3/4] w-full max-w-sm rounded-2xl overflow-hidden border border-[#4d4d4d] bg-linear-to-b from-[#161616] to-[#0c0c0c] group/img shadow-2xl transition-all duration-500 hover:border-[#6d6d6d] hover:scale-[1.02]">
               {/* Ambient glow */}
               <div className="absolute -inset-1 bg-gradient-to-r from-[#d9d9d9]/10 to-transparent blur-xl opacity-50 group-hover/img:opacity-100 transition-opacity duration-700" />
