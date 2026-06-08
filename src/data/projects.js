@@ -1,5 +1,37 @@
 export const projects = [
   {
+    id: "dinodash",
+    title: "DinoDash",
+    subtitle: "Chrome Extention - Interactive New Tab Page with productivity widgets and a dino runner game",
+    category: ["Favourites", "Websites", "Brand/Products"],
+    thumbnail: "/images/projects/dinodash/dinodash-thumb.webp",
+    images: [
+      "/images/projects/dinodash/dinodash-thumb.webp",
+      "/images/projects/dinodash/dd1.webp",
+      "/images/projects/dinodash/dd2.webp"
+    ],
+    roles: ["Design", "Development"],
+    tools: ["Chrome Extension APIs"],
+    timeline: "Ongoing",
+    type: "Personal",
+    socials: [
+      { platform: "Website", url: "https://use-dino-dash.vercel.app" }
+    ],
+    liveLink: "https://chromewebstore.google.com/detail/dinodash-interactive-new/biplgpkmcbidebfejmdkgppgifjpdggi?hl=en&authuser=0",
+
+    problems: `Chrome's default new tab page is uninspiring and static—a missed opportunity for both productivity and delight. The goal was to build a privacy-first, offline-ready Chrome Extension that reimagines this space with an interactive dino runner game, custom themes, smart history, bookmarks, and detailed browsing analytics.
+
+The core technical challenge lay in creating a performance-driven, high-frame-rate canvas game within an extension environment. We had to ensure a consistent, deterministic 60fps physics simulation across varied host machines without bloated dependencies. Additionally, handling browsing history categorization, favorites categorization, and storing persistent high scores entirely client-side (via localStorage) required solid local state design to guarantee data privacy and instantaneous responsiveness.`,
+
+    solutions: `To address performance, we designed a custom 2D rendering pipeline that runs at a deterministic 60fps. By utilizing modular procedural obstacle generation, each run feels fresh yet maintains seeding capability for replays. To respect user privacy completely, the extension relies on zero external servers—all analytics, history indexing, and game scores are processed and stored locally on the user's device using local APIs.
+
+We built a highly responsive, minimal dashboard styling that adapts dynamically based on user themes. Handcrafted options like 'Dark Valley' (neon city aesthetics) and 'Mystic Forest' (nature atmosphere) completely transform the visual color space of all widgets, creating a cohesive, immersive new tab experience. Bookmarks and search utilities were integrated natively with quick arrow key controls to transition from standard searching to game runner sprints in one keystroke.`,
+
+    learnings: `This project reinforced the power of client-side-only execution. Building a complex, interactive extension without any external database dependencies taught me how to maximize the utility of Web Extension APIs, Chrome's local storage, and efficient canvas rendering.
+
+If I were to rebuild DinoDash, I would expand the community voting mechanics and introduce web-monetized customizable visual components. Most of all, it proved that the new tab page can be more than a utility—it can breathe life into a browser.`
+  },
+  {
     id: "code-vantage",
     title: "Code Vantage",
     subtitle: "3D Interactive Agency Website",
@@ -121,38 +153,6 @@ Special attention was given to using brand elements consistently across the layo
   learnings: `The final outcome was a distinct and high-energy website concept that clearly reflects the brand’s identity. The project reinforced how strong visual storytelling and brand alignment can elevate even simple layouts.
 
 On a personal level, this design helped me step outside my comfort zone and experiment with a different aesthetic. I learned how to control visual energy without sacrificing usability, and how adapting design decisions to a brand’s personality leads to more authentic and impactful results.`
-},
-{
-  id: "dinodash",
-  title: "DinoDash",
-  subtitle: "Chrome New Tab Dino Runner",
-  category: ["Favourites", "Websites", "Brand/Products"],
-  thumbnail: "/images/projects/dinodash/dinodash-thumb.webp",
-  images: [
-    "/images/projects/dinodash/dinodash-thumb.webp",
-    "/images/projects/dinodash/dd1.webp",
-    "/images/projects/dinodash/dd2.webp"
-  ],
-  roles: ["Design", "Development"],
-  tools: ["Chrome Extension APIs"],
-  timeline: "Ongoing",
-  type: "Personal",
-  socials: [
-    { platform: "Website", url: "https://use-dino-dash.vercel.app" }
-  ],
-  liveLink: "https://chromewebstore.google.com/detail/dinodash-interactive-new/biplgpkmcbidebfejmdkgppgifjpdggi?hl=en&authuser=0",
-
-  problems: `Chrome's default new tab page is uninspiring and static—a missed opportunity for both productivity and delight. The goal was to build a privacy-first, offline-ready Chrome Extension that reimagines this space with an interactive dino runner game, custom themes, smart history, bookmarks, and detailed browsing analytics.
-
-The core technical challenge lay in creating a performance-driven, high-frame-rate canvas game within an extension environment. We had to ensure a consistent, deterministic 60fps physics simulation across varied host machines without bloated dependencies. Additionally, handling browsing history categorization, favorites categorization, and storing persistent high scores entirely client-side (via localStorage) required solid local state design to guarantee data privacy and instantaneous responsiveness.`,
-
-  solutions: `To address performance, we designed a custom 2D rendering pipeline that runs at a deterministic 60fps. By utilizing modular procedural obstacle generation, each run feels fresh yet maintains seeding capability for replays. To respect user privacy completely, the extension relies on zero external servers—all analytics, history indexing, and game scores are processed and stored locally on the user's device using local APIs.
-
-We built a highly responsive, minimal dashboard styling that adapts dynamically based on user themes. Handcrafted options like 'Dark Valley' (neon city aesthetics) and 'Mystic Forest' (nature atmosphere) completely transform the visual color space of all widgets, creating a cohesive, immersive new tab experience. Bookmarks and search utilities were integrated natively with quick arrow key controls to transition from standard searching to game runner sprints in one keystroke.`,
-
-  learnings: `This project reinforced the power of client-side-only execution. Building a complex, interactive extension without any external database dependencies taught me how to maximize the utility of Web Extension APIs, Chrome's local storage, and efficient canvas rendering.
-
-If I were to rebuild DinoDash, I would expand the community voting mechanics and introduce web-monetized customizable visual components. Most of all, it proved that the new tab page can be more than a utility—it can breathe life into a browser.`
 }
 ];
 
