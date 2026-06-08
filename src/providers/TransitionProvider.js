@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { TransitionRouter } from "next-transition-router";
 import gsap from "gsap";
 import Loader from "@/components/Loader";
+import FloatingSocials from "@/components/FloatingSocials";
 
 const BLOCK_SIZE = 60;
 
@@ -98,6 +99,7 @@ export default function TransitionProvider({ children }) {
       <div ref={transitionGridRef} className="transition-grid" />
       {children}
     </TransitionRouter>
+        <FloatingSocials />
       </div>
     </>
   );
