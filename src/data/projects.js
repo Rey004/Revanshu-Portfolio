@@ -3,7 +3,7 @@ export const projects = [
     id: "repostory",
     title: "RepoStory",
     subtitle: "Turn your GitHub repository stats into beautiful developer story cards",
-    category: ["Favourites", "Brand/Products"],
+    category: ["Favourites", "Brand/Products", "Websites"],
     thumbnail: "/images/projects/repostory/repostory-thumb.webp",
     images: [
       "/images/projects/repostory/repostory-thumb.webp",
@@ -67,7 +67,7 @@ export const projects = [
     id: "dinodash",
     title: "DinoDash",
     subtitle: "Chrome Extention - Interactive New Tab Page with productivity widgets and a dino runner game",
-    category: ["Favourites", "Brand/Products"],
+    category: ["Favourites", "Brand/Products", "Websites"],
     thumbnail: "/images/projects/dinodash/dinodash-thumb.webp",
     images: [
       "/images/projects/dinodash/dinodash-thumb.webp",
