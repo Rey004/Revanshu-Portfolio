@@ -89,7 +89,7 @@ export default function Navbar() {
             <a
               href="/Revanshu_Resume.pdf"
               download="Revanshu_Resume.pdf"
-              className="inline-flex items-center gap-1.5 bg-[#d9d9d9] hover:bg-white text-black text-[10px] md:text-xs font-extrabold px-3 py-1.5 md:px-4 md:py-2 rounded-lg transition-all duration-300 active:scale-95 mr-1 md:mr-2"
+              className="btn-resume inline-flex items-center gap-1.5 bg-[#d9d9d9] text-black text-[10px] md:text-xs font-extrabold px-3 py-1.5 md:px-4 md:py-2 rounded-lg active:scale-95 mr-1 md:mr-2"
             >
               <span>Resume</span>
               <svg
@@ -200,7 +200,7 @@ export default function Navbar() {
             <a
               href="/Revanshu_Resume.pdf"
               download="Revanshu_Resume.pdf"
-              className={`mt-6 inline-flex items-center gap-2 bg-[#d9d9d9] hover:bg-white text-black font-extrabold text-xs px-6 py-3 rounded-lg transition-all duration-300 active:scale-95 ${isMenuOpen ? 'opacity-100 translate-y-0 delay-400' : 'opacity-0 translate-y-8'}`}
+              className={`btn-resume mt-6 inline-flex items-center gap-2 bg-[#d9d9d9] text-black font-extrabold text-xs px-6 py-3 rounded-lg active:scale-95 ${isMenuOpen ? 'opacity-100 translate-y-0 delay-400' : 'opacity-0 translate-y-8'}`}
             >
               <span>Resume</span>
               <svg

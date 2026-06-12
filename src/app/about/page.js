@@ -105,7 +105,7 @@ export default function AboutPage() {
               <a
                 href="/Revanshu_Resume.pdf"
                 download="Revanshu_Resume.pdf"
-                className="inline-flex items-center gap-3 bg-[#d9d9d9] text-black text-xs font-extrabold px-6 py-3.5 rounded-lg hover:bg-white transition-all duration-300 shadow-md active:scale-95"
+                className="btn-resume inline-flex items-center gap-3 bg-[#d9d9d9] text-black text-xs font-extrabold px-6 py-3.5 rounded-lg active:scale-95"
               >
                 <span>Download Resume</span>
                 <svg

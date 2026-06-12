@@ -140,3 +140,19 @@ a *, button *, [role="button"] *, input[type="submit"] *, input[type="button"] *
   background: #d9d9d9;
   opacity: 0;
 }
+
+/* ─── Resume Button: Minimal Hover ─── */
+.btn-resume {
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn-resume:hover {
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(217, 217, 217, 0.18);
+  transform: translateY(-1px);
+}
+
+.btn-resume:active {
+  transform: translateY(0);
+  box-shadow: none;
+}

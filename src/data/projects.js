@@ -1,9 +1,73 @@
 export const projects = [
   {
+    id: "repostory",
+    title: "RepoStory",
+    subtitle: "Turn your GitHub repository stats into beautiful developer story cards",
+    category: ["Favourites", "Brand/Products"],
+    thumbnail: "/images/projects/repostory/repostory-thumb.webp",
+    images: [
+      "/images/projects/repostory/repostory-thumb.webp",
+      "/images/projects/repostory/rs1.webp",
+      "/images/projects/repostory/rs2.webp"
+    ],
+    roles: ["Design", "Development"],
+    tools: ["Github API, NextJS"],
+    timeline: "2 Days",
+    type: "Personal",
+    socials: [
+      { platform: "Github", url: "https://github.com/Rey004/RepoStory" }
+    ],
+    liveLink: "https://use-repostory.vercel.app",
+
+    problems: `Developers build projects, push commits, and track progress through [[GitHub]] — but the raw data tells no story by itself.
+- [[Commit histories]] are just chronological logs with no personality
+- [[Language stats]] are bare percentages with no narrative context
+- [[Release tags]] are version strings with no human meaning
+- Sharing a GitHub link forces others to interpret raw data themselves — most simply won't
+
+**The gap:** there's no easy way to look at a repository and immediately understand its character — who built it, how they worked, and what kind of project it really is.`,
+
+    solutions: `[[RepoStory]] transforms any public [[GitHub]] repository into a shareable visual **story card** in seconds.
+## How It Works
+- Paste a repo URL → the app fetches [[commit data]], [[language distributions]], and [[release milestones]] via the [[GitHub API]]
+- Assigns a **developer archetype** based on contributor count, age, and star metrics
+- Classifies **commit habits** by analysing timestamps of when commits were made
+- Optionally generates a developer narrative via [[Google Gemini]]
+- Export as [[PNG]] or copy directly to clipboard
+
+## Developer Archetypes & Commit Habits
+| Label | Type | Signal |
+| --- | --- | --- |
+| [[Solo Builder]] | Archetype | Single contributor, consistent commits |
+| [[Rising Star]] | Archetype | Fast growth in stars and forks |
+| [[Legacy Giant]] | Archetype | Long-running, stable project age |
+| [[Night Owl]] | Habit | Majority of commits after 10 PM |
+| [[Weekend Warrior]] | Habit | Most commits on Saturday & Sunday |
+
+## Tech Stack
+| Layer | Technology | Notes |
+| --- | --- | --- |
+| Framework | [[Next.js]] + custom CSS | Deployed on [[Vercel]] |
+| Data | [[GitHub REST API]] | [[60 req/hr]] unauth · [[5,000 req/hr]] with token |
+| AI Layer | [[Gemini API]] | Optional — enhances without blocking |`,
+
+    learnings: `This project demonstrates how to build a meaningful product on top of a [[public API]] **without** a backend database.
+## Key Patterns
+- **Fetch → Classify → Render:** structured API data → [[classification logic]] → polished visual output
+- [[Archetype scoring]] is heuristic scoring — turning quantitative signals into qualitative labels people care about
+- [[Next.js]] + [[Vercel]] = zero infrastructure, fast iteration, live URL from day one
+
+## What to Take Away
+- [[Rate limit awareness]] is non-negotiable: always design for both unauthenticated and authenticated flows
+- [[Environment variable management]] keeps API keys safe while keeping the codebase portable
+- Making [[Gemini AI]] optional keeps the core product functional — AI enhances, but never blocks
+- The **data → classify → card** pattern is reusable across dozens of other product ideas`
+  },
+  {
     id: "dinodash",
     title: "DinoDash",
     subtitle: "Chrome Extention - Interactive New Tab Page with productivity widgets and a dino runner game",
-    category: ["Favourites", "Websites", "Brand/Products"],
+    category: ["Favourites", "Brand/Products"],
     thumbnail: "/images/projects/dinodash/dinodash-thumb.webp",
     images: [
       "/images/projects/dinodash/dinodash-thumb.webp",
@@ -19,17 +83,40 @@ export const projects = [
     ],
     liveLink: "https://chromewebstore.google.com/detail/dinodash-interactive-new/biplgpkmcbidebfejmdkgppgifjpdggi?hl=en&authuser=0",
 
-    problems: `Chrome's default new tab page is uninspiring and static—a missed opportunity for both productivity and delight. The goal was to build a privacy-first, offline-ready Chrome Extension that reimagines this space with an interactive dino runner game, custom themes, smart history, bookmarks, and detailed browsing analytics.
+    problems: `[[Chrome]]'s default new tab page is uninspiring and static — a missed opportunity for both **productivity** and **delight**. The goal was to build a privacy-first, offline-ready [[Chrome Extension]] that reimagines this space entirely.
+## Technical Challenges
+- Achieving a **deterministic [[60fps]]** physics simulation across varied host machines without heavy libraries
+- Building a high-performance [[canvas]] game within the constraints of an extension environment
+- Handling [[browsing history]] categorisation and [[favourites]] tracking entirely client-side
+- Storing persistent high scores using [[localStorage]] — guaranteeing data privacy and instant responsiveness`,
 
-The core technical challenge lay in creating a performance-driven, high-frame-rate canvas game within an extension environment. We had to ensure a consistent, deterministic 60fps physics simulation across varied host machines without bloated dependencies. Additionally, handling browsing history categorization, favorites categorization, and storing persistent high scores entirely client-side (via localStorage) required solid local state design to guarantee data privacy and instantaneous responsiveness.`,
+    solutions: `## Game Engine
+- Designed a custom [[2D rendering pipeline]] running at a deterministic **60fps**
+- Modular **procedural obstacle generation** — each run is fresh but supports seeding for replays
+- Zero external servers — all processing happens via [[Web Extension APIs]] on the user's device
 
-    solutions: `To address performance, we designed a custom 2D rendering pipeline that runs at a deterministic 60fps. By utilizing modular procedural obstacle generation, each run feels fresh yet maintains seeding capability for replays. To respect user privacy completely, the extension relies on zero external servers—all analytics, history indexing, and game scores are processed and stored locally on the user's device using local APIs.
+## Themes
+| Theme | Aesthetic | Effect |
+| --- | --- | --- |
+| [[Dark Valley]] | Neon city | Glowing skyscraper silhouettes, blue-purple palette |
+| [[Mystic Forest]] | Nature atmosphere | Deep greens, fog overlays, earthy tones |
 
-We built a highly responsive, minimal dashboard styling that adapts dynamically based on user themes. Handcrafted options like 'Dark Valley' (neon city aesthetics) and 'Mystic Forest' (nature atmosphere) completely transform the visual color space of all widgets, creating a cohesive, immersive new tab experience. Bookmarks and search utilities were integrated natively with quick arrow key controls to transition from standard searching to game runner sprints in one keystroke.`,
+## Dashboard Features
+- [[Arrow key]] controls let users jump from search to game sprint in one keystroke
+- [[Browsing analytics]], bookmarks, and history all rendered locally — **no data ever leaves the device**
+- Theme changes update the **entire visual colour space** of every widget simultaneously`,
 
-    learnings: `This project reinforced the power of client-side-only execution. Building a complex, interactive extension without any external database dependencies taught me how to maximize the utility of Web Extension APIs, Chrome's local storage, and efficient canvas rendering.
+    learnings: `## What This Reinforced
+- [[Client-side-only execution]] is far more powerful than most developers assume
+- [[Web Extension APIs]] provide a surprisingly capable local data layer when used intentionally
+- Canvas game development inside an extension demands a very different performance mindset
 
-If I were to rebuild DinoDash, I would expand the community voting mechanics and introduce web-monetized customizable visual components. Most of all, it proved that the new tab page can be more than a utility—it can breathe life into a browser.`
+## What I'd Build Next
+- Expand **community voting mechanics** for theme popularity rankings
+- Introduce **web-monetized customisable visual components** for power users
+- Push [[performance testing]] across lower-spec machines to find edge cases
+
+**Bottom line:** The new tab page can be more than a utility — it can breathe life into a browser.`
   },
   {
     id: "code-vantage",
@@ -50,19 +137,42 @@ If I were to rebuild DinoDash, I would expand the community voting mechanics and
       { platform: "GitHub", url: "https://github.com/Rey004/Code-Vantage-2.0" }
     ],
     liveLink: "https://codevantage.in",
-    problems: `The goal of this project was to build a professional, modern, and interactive website for our web design agency to confidently pitch clients. While aiming for a sleek and futuristic look, we ran into performance issues as the website grew in complexity. Heavy assets and animated elements started causing slow load times and laggy interactions, which directly hurt the user experience.
 
-Another challenge was the lack of expertise in creating custom 3D elements from scratch. We wanted to include a unique 3D visual aligned with our agency's branding, but without proper optimization, these elements risked making the site feel slow and unpolished—exactly the opposite of what a client-facing website should be.`,
-    solutions: `Instead of forcing a complex setup, we took a practical approach. We used a pre-existing 3D element from Spline and customized its shape and material to match our agency's logo, allowing us to maintain brand consistency without overengineering the solution. This helped us achieve the interactive 3D feel while staying within our technical comfort zone.
+    problems: `The goal was to build a **professional, client-facing agency website** — modern, interactive, and visually striking enough to confidently pitch clients.
+## Challenges Encountered
+- **Performance degradation** as the website grew: heavy assets and animated elements caused slow load times and laggy interactions — directly hurting the user experience
+- No deep expertise in creating **custom [[3D elements]]** from scratch — we wanted a unique visual aligned with agency branding
+- Risk that unoptimised [[3D assets]] would make the site feel slow and unpolished — the **opposite** of what a client-facing website should communicate
 
-To fix performance issues, we focused heavily on optimization. All image assets were converted from PNG to WebP to reduce file size, and the 3D model was simplified by keeping the mesh low-poly—reducing unnecessary edge density while preserving visual quality. We intentionally avoided using Three.js to keep development faster, simpler, and more maintainable, prioritizing real-world usability over technical complexity.
+Without solving both, the site would have undermined the very credibility it was built to establish.`,
 
-The overall design was kept minimal, clean, and futuristic, ensuring the 3D element enhanced the experience instead of overwhelming it.`,
-    learnings: `The final result was a visually striking yet performant website that felt professional and client-ready. The smoother animations and faster load times significantly improved usability, and the project was well appreciated by our peer group for its uniqueness and execution.
+    solutions: `## 3D Visuals Approach
+- Used a pre-existing [[3D element]] from [[Spline]] and customised its shape and material to match the agency logo
+- Achieved the interactive 3D feel **without overengineering** — stayed within our technical comfort zone
+- Intentionally avoided [[Three.js]] to keep development faster, simpler, and more maintainable
 
-On a personal level, this project boosted my confidence massively. I learned how to balance aesthetics with performance, how to optimize 3D and visual assets effectively, and how to extract high-quality, consistent outputs from AI image-generation tools. Most importantly, it proved to me that I can build interactive, modern websites with 3D elements—even without relying on heavy frameworks like Three.js.
+## Performance Optimisations
+| Optimisation | Action | Impact |
+| --- | --- | --- |
+| Image formats | Converted all [[PNG]] assets to [[WebP]] | Significant file size reduction |
+| 3D mesh | Kept [[low-poly]], reduced edge density | Preserved quality, improved render speed |
+| Library choice | Used [[Spline]] embed instead of [[Three.js]] | Simpler setup, lighter bundle weight |
 
-If I were to revisit this project, I'd push performance testing even further and explore deeper 3D customization—but the foundation built here already unlocked a new level of creative confidence.`
+## Design Philosophy
+- Overall design kept **minimal, clean, and futuristic**
+- The 3D element was designed to **enhance** the experience — not dominate or slow it down`,
+
+    learnings: `## What Worked
+- The final site was **visually striking and performant** — smoother animations, faster loads, client-ready
+- Well appreciated by peers for its unique 3D execution and overall aesthetic polish
+
+## Skills Built
+- **Balancing aesthetics with performance** — knowing precisely when to cut and when to push visually
+- Optimising [[3D assets]] and visual media for real-world web delivery conditions
+- Extracting **consistent, high-quality outputs** from [[AI image generation]] tools for production use
+- Delivering interactive, modern sites with [[3D elements]] — without relying on heavy frameworks like [[Three.js]]
+
+**Key realisation:** Choosing the right level of technical complexity is itself a design decision — and often, less is more powerful.`
   },
   {
   id: "freak-lifestyle",
@@ -83,17 +193,48 @@ If I were to revisit this project, I'd push performance testing even further and
     { platform: "Instagram", url: "https://www.instagram.com/freaklifestyleofficial/" }
   ],
   liveLink: "https://freaklifestyle.com",
-  problems: `Freak Lifestyle was started by a team of four 17-year-old teenagers with a clear vision—to build an affordable streetwear brand that delivers unique designs without compromising on quality. While we successfully handled product design, website development, packaging, and operations in-house, the biggest challenge emerged after launch: marketing.
 
-Despite having a solid product and strong branding, we lacked a structured marketing roadmap. Reaching the right audience, building consistent visibility, and scaling awareness became difficult due to limited experience in brand promotion and customer acquisition.`,
+  problems: `[[Freak Lifestyle]] was started by **four 17-year-old teenagers** with one clear vision: build an affordable [[streetwear]] brand that delivers unique designs without compromising on quality.
+## What We Handled In-House
+- [[Product design]] — every design conceptualised and created by the team
+- [[Website development]] — built and maintained entirely using [[WordPress]]
+- [[Packaging]] — custom branded packaging designed from scratch
+- [[Operations]] — end-to-end order management and fulfilment
 
-  solutions: `From day one, the focus was to make the brand feel premium and trustworthy. We invested heavily in branding, packaging, and product quality to create a strong first impression and long-term brand recall. A major turning point was switching manufacturers, which significantly reduced production costs while improving quality—resulting in healthier profit margins.
+## The Core Problem
+Despite a solid product and strong branding, **marketing became the wall**. After launch we lacked:
+- A structured [[marketing roadmap]]
+- Experience in [[brand promotion]] and [[customer acquisition]] at scale
+- A clear strategy for building consistent visibility with the right audience`,
 
-For marketing, we took a quality-over-quantity approach. Influencer collaborations were carefully selected based on credibility and audience trust rather than follower count. Additionally, we sponsored two events, allowing us to interact directly with customers and build real-world brand presence. As the brand evolved, we upgraded our product mockups and visual assets on the website to elevate the overall identity and maintain a premium look.`,
+  solutions: `## Branding & Quality First
+- Invested heavily in [[branding]], [[packaging]], and product quality to create a strong first impression
+- Switched manufacturers — **reduced production costs** while improving quality, resulting in healthier [[profit margins]]
 
-  learnings: `The brand received a strong response from customers, especially for product quality, packaging, and overall brand image. Direct interactions at sponsored events validated our design and quality decisions, reinforcing the importance of customer feedback in shaping future products.
+## Marketing Approach
+| Channel | Strategy | Outcome |
+| --- | --- | --- |
+| [[Influencer collabs]] | Selected by credibility and audience trust — not follower count | Authentic reach to target audience |
+| [[Event sponsorships]] | Sponsored 2 local events | Direct customer interaction, real-world brand presence |
+| [[Visual upgrades]] | Refreshed product mockups and website assets | Elevated brand identity, more premium perception |
 
-This project taught me end-to-end brand building—from product design and operations to marketing strategy and cost optimization. I learned how critical it is to plan marketing alongside product development and how small operational decisions, like choosing the right manufacturer, can massively impact profitability. If we were to do this again, we would create a clear, data-driven marketing roadmap from the start and iterate faster based on customer feedback to scale reach and impact.`
+## Core Principle
+- Every decision followed a **quality over quantity** philosophy
+- Event sponsorships enabled **real-world brand validation** directly from customers`,
+
+  learnings: `## Business Lessons
+- [[End-to-end brand building]] is a discipline — [[product design]], [[operations]], [[marketing]], and [[cost management]] are all interconnected
+- **Choosing the right manufacturer** can be as impactful as any campaign — it directly affects [[profit margins]] and [[product quality]]
+- [[Marketing]] must be planned **alongside product development**, not retrofitted after launch
+
+## What Customers Validated
+- Strong response specifically to [[product quality]] and [[packaging]] — premium feel was consistently noticed
+- Direct event interactions confirmed the brand's design decisions were resonating with the target audience
+
+## What We'd Do Differently
+- Build a **data-driven [[marketing roadmap]]** from day one
+- Iterate faster using [[customer feedback]] loops to scale reach and refine messaging
+- Invest in [[social media strategy]] earlier — before launch, not after`
 },
 {
   id: "vetric-website",
@@ -113,17 +254,39 @@ This project taught me end-to-end brand building—from product design and opera
   socials: [{ platform: "GitHub", url: "https://github.com/Rey004/vetric-website" }],
   liveLink: "https://vetric-website.vercel.app/",
 
-  problems: `This project was created as a concept website for an agency, with the goal of presenting information in a sleek, elegant, and modern way. While the visual direction was clear from the start, the main challenge came during implementation—specifically figuring out the right approach for handling mode switching without complicating the codebase.
+  problems: `This was a **concept agency website** built to present information in a sleek, elegant, and modern way — within a tight [[2-day timeline]].
+## Key Challenges
+- Determining the right approach for [[mode switching]] without overcomplicating the codebase
+- Maintaining **clean structure and visual consistency** while keeping UI logic simple and scalable
+- Delivering a result that felt **polished rather than rushed** — no room for overengineering given the timeline`,
 
-Since the project had a short timeline, the challenge was to maintain clean structure and visual consistency while ensuring the UI logic remained simple and scalable.`,
+  solutions: `## Design Approach
+- Kept the site **minimal and content-driven** — typography, spacing, and layout carry all the weight
+- Every section intentionally simple so the concept felt **polished, not overbuilt**
 
-  solutions: `The focus was to keep the website minimal and content-driven, allowing typography, spacing, and layout to carry the design. Instead of overengineering the mode-switching logic, a straightforward state-based approach was implemented to ensure predictable behavior and easier maintenance.
+## Technical Decisions
+| Decision | Choice | Reason |
+| --- | --- | --- |
+| Framework | [[React]] | Fast iteration, clean component structure |
+| Mode switching | State-based [[useState]] | Simple, predictable, easy to maintain |
+| Design direction | Minimal, content-driven | Appropriate for the concept scope and timeline |
 
-React was chosen to rapidly iterate on layout and interactions, allowing fast experimentation within the limited timeframe. Design decisions were intentionally kept simple to support the concept nature of the project and to ensure the final result felt polished rather than overbuilt.`,
+## Development Approach
+- [[React]] enabled rapid layout iteration and interaction experimentation within the tight timeframe
+- Avoided complex theming systems — kept everything scoped to the project's actual needs`,
 
-  learnings: `The final outcome was a clean and elegant agency concept website that clearly communicates information without visual clutter. The project helped reinforce the importance of approaching UI logic with simplicity, especially when working under tight deadlines.
+  learnings: `## What This Built
+- Clarity on **structuring [[state management]] for UI modes** in a clean and scalable way
+- Understanding of how small architectural choices ripple into long-term maintainability
 
-Through this build, I gained clarity on structuring state management for UI modes and learned how small architectural decisions can significantly affect maintainability. If revisited, I would explore a more scalable theming approach for mode switching, but the current implementation served its purpose effectively within the scope of the project.`
+## Key Takeaways
+- [[UI logic simplicity]] matters most under tight deadlines — over-engineering has a real hidden cost
+- A **minimal, elegant concept** often communicates more than a feature-heavy one
+- [[React]]'s component model makes even 2-day sprints feel organised and manageable
+
+## What I'd Revisit
+- Explore a more **scalable [[theming approach]]** for mode switching if the scope were larger
+- Add [[micro-animations]] to mode transitions for a more satisfying, polished feel`
 },
 {
   id: "food-truck-website",
@@ -142,17 +305,41 @@ Through this build, I gained clarity on structuring state management for UI mode
   type: "Concept",
   liveLink: "https://www.figma.com/design/bJiO99MKY2X3IfsNIrJWY4/Food-Truck-Website?node-id=0-1&t=wWhpfYJMDiza4II4-1",
 
-  problems: `This project was a design concept aimed at creating an energetic and visually engaging website for a food truck brand. The main challenge was to translate the brand’s lively personality into a digital experience while keeping the layout clear and easy to navigate.
+  problems: `This was a **design-only [[Figma]] concept** for a food truck brand — the goal was to translate the brand's lively personality into a digital experience people would immediately connect with.
+## Design Challenges
+- Balancing **high visual energy** with a layout that stays clear and easy to navigate
+- Avoiding an interface that felt **chaotic or overwhelming** despite the brand's bold visual style
+- Maintaining **[[brand consistency]]** across all sections while pushing creative boundaries
+- Delivering a complete, polished concept within a [[2-day]] timeline`,
 
-Since this was a design-only project with a short timeline, the challenge was to balance creativity with brand consistency and avoid making the interface feel chaotic or overwhelming.`,
+  solutions: `## Design Approach
+- Built energy through **bold [[typography]]**, expressive [[colour palettes]], and dynamic layout decisions
+- Every section designed to reflect the food truck's personality while maintaining **clarity and visual hierarchy**
+- Used the brand's existing visual elements as **creative constraints**, not limitations
 
-  solutions: `The design approach focused on building energy through bold colors, expressive typography, and dynamic layout choices that aligned closely with the brand’s visual elements. Every section was designed to reflect the food truck’s personality while maintaining clarity and hierarchy.
+## Tools & Techniques
+| Aspect | Approach | Outcome |
+| --- | --- | --- |
+| Tool | [[Figma]] | Full layout, components, and prototype |
+| Colour | High-contrast, brand-matched [[palette]] | Energy and identity without visual chaos |
+| Typography | Bold, expressive [[typefaces]] | Personality-driven visual communication |
+| Layout | Dynamic, rhythm-based sections | Guides the eye naturally through content |
 
-Special attention was given to using brand elements consistently across the layout, ensuring the design felt cohesive and recognizable. This project was also an opportunity to intentionally explore a visual style different from my usual work, pushing creative boundaries and experimenting with a more playful and vibrant design language.`,
+This project was a deliberate opportunity to **explore a visual style outside my usual aesthetic** — more playful, vibrant, and expressive.`,
 
-  learnings: `The final outcome was a distinct and high-energy website concept that clearly reflects the brand’s identity. The project reinforced how strong visual storytelling and brand alignment can elevate even simple layouts.
+  learnings: `## What the Project Proved
+- **Strong visual storytelling** can elevate even a simple layout into something memorable
+- Adapting design decisions to a brand's personality leads to more **authentic and impactful** outcomes
 
-On a personal level, this design helped me step outside my comfort zone and experiment with a different aesthetic. I learned how to control visual energy without sacrificing usability, and how adapting design decisions to a brand’s personality leads to more authentic and impactful results.`
+## Skills Developed
+- Controlling **visual energy without sacrificing usability** — knowing when to dial up and when to restrain
+- Designing within an aesthetic that differs from personal preference — a key [[professional design skill]]
+- Working at speed in [[Figma]] without losing attention to quality or craft
+
+## What I'd Push Further
+- Develop the concept into a **full interactive [[Figma]] prototype** with animation
+- Add a [[mobile-first]] layout variation to stress-test the design across screen sizes
+- Expand the design system into a **full brand identity package**`
 }
 ];
 
