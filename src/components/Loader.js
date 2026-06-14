@@ -6,7 +6,6 @@ import gsap from "gsap";
 export default function Loader({ onComplete }) {
   const [progress, setProgress] = useState(0);
   const loaderRef = useRef(null);
-  const orbRef = useRef(null);
   const textRef = useRef(null);
   const progressRef = useRef(null);
   const blocksContainerRef = useRef(null);
@@ -51,16 +50,11 @@ export default function Loader({ onComplete }) {
 
   useEffect(() => {
     createTransitionBlocks();
-
-    // Animate orb glow
-    gsap.to(orbRef.current, {
-      scale: 1.1,
-      opacity: 0.8,
-      duration: 1.5,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-    });
+    
+    // Prevent scrolling during loading
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "hidden";
+    }
 
     // Simulate loading progress
     const interval = setInterval(() => {
@@ -75,7 +69,12 @@ export default function Loader({ onComplete }) {
       });
     }, 150);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      if (typeof document !== "undefined") {
+        document.body.style.overflow = "";
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -88,7 +87,7 @@ export default function Loader({ onComplete }) {
       });
 
       // Fade out loader content
-      tl.to([orbRef.current, textRef.current, progressRef.current], {
+      tl.to([textRef.current, progressRef.current], {
         opacity: 0,
         scale: 0.9,
         duration: 0.4,
@@ -142,43 +141,9 @@ export default function Loader({ onComplete }) {
 
       {/* Loader Content */}
       <div className="relative z-10 flex flex-col items-center justify-center">
-        {/* Orb Effect */}
-        <div
-          ref={orbRef}
-          className="relative w-32 h-32 md:w-40 md:h-40 mb-8"
-        >
-          {/* Central glow */}
-          <div
-            className="absolute inset-0 rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 40%, transparent 70%)",
-              filter: "blur(20px)",
-            }}
-          />
-          {/* Inner core */}
-          <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(217,217,217,0.5) 50%, transparent 100%)",
-              filter: "blur(10px)",
-            }}
-          />
-          {/* Orbiting ring */}
-          <div
-            className="absolute inset-2 rounded-full border border-white/20 animate-spin"
-            style={{ animationDuration: "3s" }}
-          />
-          <div
-            className="absolute inset-4 rounded-full border border-white/10 animate-spin"
-            style={{ animationDuration: "4s", animationDirection: "reverse" }}
-          />
-        </div>
-
         {/* Loading Text */}
         <div ref={textRef} className="text-center">
-          <h2 className="font-zen-dots text-lg md:text-xl bg-gradient-to-r from-[#999999] via-white to-[#999999] bg-clip-text text-transparent mb-4">
+          <h2 className="font-zen-dots text-lg md:text-xl bg-linear-to-r from-[#999999] via-white to-[#999999] bg-clip-text text-transparent mb-4">
             Loading
           </h2>
         </div>
@@ -187,7 +152,7 @@ export default function Loader({ onComplete }) {
         <div ref={progressRef} className="w-48 md:w-64">
           <div className="h-[2px] bg-[#2a2a2a] rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-[#666666] via-white to-[#666666] transition-all duration-150 ease-out"
+              className="h-full bg-linear-to-r from-[#666666] via-white to-[#666666] transition-all duration-150 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>

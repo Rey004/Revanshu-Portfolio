@@ -1,15 +1,17 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { TransitionRouter } from "next-transition-router";
 import gsap from "gsap";
 import FloatingSocials from "@/components/FloatingSocials";
+import Loader from "@/components/Loader";
 
 const BLOCK_SIZE = 60;
 
 export default function TransitionProvider({ children }) {
   const transitionGridRef = useRef(null);
   const blocksRef = useRef([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const createTransitionGrid = () => {
     if (!transitionGridRef.current) return;
@@ -48,6 +50,12 @@ export default function TransitionProvider({ children }) {
   };
 
   useEffect(() => {
+    // Check session storage to see if we've already loaded in this session
+    const hasLoaded = sessionStorage.getItem("hasLoaded");
+    if (hasLoaded) {
+      setIsLoading(false);
+    }
+
     createTransitionGrid();
     window.addEventListener("resize", createTransitionGrid);
 
@@ -56,8 +64,14 @@ export default function TransitionProvider({ children }) {
     };
   }, []);
 
+  const handleLoaderComplete = () => {
+    sessionStorage.setItem("hasLoaded", "true");
+    setIsLoading(false);
+  };
+
   return (
     <>
+      {isLoading && <Loader onComplete={handleLoaderComplete} />}
       <TransitionRouter
         auto
         leave={(next) => {
