@@ -82,13 +82,13 @@ export default function AboutPage() {
                     <span className="text-[#888] block mb-1">Current Status:</span>
                     <ul className="space-y-1 text-[#b1b1b1]">
                       <li className="flex items-center gap-2">
-                        <span className="text-white font-bold">$</span> currently → DinoDash
+                        <span className="text-white font-bold">$</span> currently → Figuring out AI Workflows
                       </li>
                       <li className="flex items-center gap-2">
-                        <span className="text-white font-bold">$</span> learning → soft skills
+                        <span className="text-white font-bold">$</span> learning → communication + content creation
                       </li>
                       <li className="flex items-center gap-2">
-                        <span className="text-white font-bold">$</span> fueled by → music & runs
+                        <span className="text-white font-bold">$</span> fueled by → music, workouts & runs
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="text-white font-bold">$</span> location → india 🇮🇳
