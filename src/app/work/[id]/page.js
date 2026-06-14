@@ -299,9 +299,9 @@ export default async function CaseStudyPage({ params }) {
                   <h2 className="text-[#d3d3d3] text-sm font-bold uppercase tracking-widest">Problem</h2>
                   <div className="h-px flex-1 bg-[#1e1e1e]" />
                 </div>
-                <p className="text-[#9a9a9a] text-sm leading-[1.85]">
+                <div className="text-[#9a9a9a] text-sm leading-[1.85]">
                   {renderRichText(project.problems)}
-                </p>
+                </div>
               </section>
             )}
 
@@ -313,9 +313,9 @@ export default async function CaseStudyPage({ params }) {
                   <h2 className="text-[#d3d3d3] text-sm font-bold uppercase tracking-widest">Solution</h2>
                   <div className="h-px flex-1 bg-[#1e1e1e]" />
                 </div>
-                <p className="text-[#9a9a9a] text-sm leading-[1.85]">
+                <div className="text-[#9a9a9a] text-sm leading-[1.85]">
                   {renderRichText(project.solutions)}
-                </p>
+                </div>
               </section>
             )}
 
@@ -327,9 +327,9 @@ export default async function CaseStudyPage({ params }) {
                   <h2 className="text-[#d3d3d3] text-sm font-bold uppercase tracking-widest">Learnings</h2>
                   <div className="h-px flex-1 bg-[#1e1e1e]" />
                 </div>
-                <p className="text-[#9a9a9a] text-sm leading-[1.85]">
+                <div className="text-[#9a9a9a] text-sm leading-[1.85]">
                   {renderRichText(project.learnings)}
-                </p>
+                </div>
               </section>
             )}
 

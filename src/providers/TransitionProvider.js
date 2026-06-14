@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { TransitionRouter } from "next-transition-router";
 import gsap from "gsap";
-import Loader from "@/components/Loader";
 import FloatingSocials from "@/components/FloatingSocials";
 
 const BLOCK_SIZE = 60;
@@ -11,8 +10,6 @@ const BLOCK_SIZE = 60;
 export default function TransitionProvider({ children }) {
   const transitionGridRef = useRef(null);
   const blocksRef = useRef([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
 
   const createTransitionGrid = () => {
     if (!transitionGridRef.current) return;
@@ -59,48 +56,40 @@ export default function TransitionProvider({ children }) {
     };
   }, []);
 
-  const handleLoaderComplete = () => {
-    setIsLoading(false);
-    setShowContent(true);
-  };
-
   return (
     <>
-      {isLoading && <Loader onComplete={handleLoaderComplete} />}
-      <div style={{ visibility: showContent ? 'visible' : 'hidden' }}>
-        <TransitionRouter
-      auto
-      leave={(next) => {
-        const tween = gsap.to(blocksRef.current, {
-          opacity: 1,
-          duration: 0.05,
-          ease: "power2.inOut",
-          stagger: { amount: 0.5, from: "random" },
-          onComplete: next,
-        });
+      <TransitionRouter
+        auto
+        leave={(next) => {
+          const tween = gsap.to(blocksRef.current, {
+            opacity: 1,
+            duration: 0.05,
+            ease: "power2.inOut",
+            stagger: { amount: 0.5, from: "random" },
+            onComplete: next,
+          });
 
-        return () => tween.kill();
-      }}
-      enter={(next) => {
-        gsap.set(blocksRef.current, { opacity: 1 });
+          return () => tween.kill();
+        }}
+        enter={(next) => {
+          gsap.set(blocksRef.current, { opacity: 1 });
 
-        const tween = gsap.to(blocksRef.current, {
-          opacity: 0,
-          duration: 0.05,
-          delay: 0.3,
-          ease: "power2.inOut",
-          stagger: { amount: 0.5, from: "random" },
-          onComplete: next,
-        });
+          const tween = gsap.to(blocksRef.current, {
+            opacity: 0,
+            duration: 0.05,
+            delay: 0.3,
+            ease: "power2.inOut",
+            stagger: { amount: 0.5, from: "random" },
+            onComplete: next,
+          });
 
-        return () => tween.kill();
-      }}
-    >
-      <div ref={transitionGridRef} className="transition-grid" />
-      {children}
-    </TransitionRouter>
-        <FloatingSocials />
-      </div>
+          return () => tween.kill();
+        }}
+      >
+        <div ref={transitionGridRef} className="transition-grid" />
+        {children}
+      </TransitionRouter>
+      <FloatingSocials />
     </>
   );
 }
