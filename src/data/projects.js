@@ -122,7 +122,7 @@ export const projects = [
     id: "code-vantage",
     title: "Code Vantage",
     subtitle: "3D Interactive Agency Website",
-    category: ["Favourites", "Websites"],
+    category: ["Websites"],
     thumbnail: "/images/projects/code-vantage/code-vantage-thumb.webp",
     images: [
       "/images/projects/code-vantage/code-vantage-thumb.webp",
@@ -192,7 +192,6 @@ Without solving both, the site would have undermined the very credibility it was
   socials: [
     { platform: "Instagram", url: "https://www.instagram.com/freaklifestyleofficial/" }
   ],
-  liveLink: "https://freaklifestyle.com",
 
   problems: `[[Freak Lifestyle]] was started by **four 17-year-old teenagers** with one clear vision: build an affordable [[streetwear]] brand that delivers unique designs without compromising on quality.
 ## What We Handled In-House
@@ -340,7 +339,100 @@ This project was a deliberate opportunity to **explore a visual style outside my
 - Develop the concept into a **full interactive [[Figma]] prototype** with animation
 - Add a [[mobile-first]] layout variation to stress-test the design across screen sizes
 - Expand the design system into a **full brand identity package**`
-}
+  },
+  {
+    id: "tmm-world",
+    title: "TMM World",
+    subtitle: "Brand Building Agency Website",
+    category: ["Websites"],
+    thumbnail: "/images/projects/tmm-world/tmm-thumb.webp",
+    images: [
+      "/images/projects/tmm-world/tmm-thumb.webp",
+      "/images/projects/tmm-world/tmm1.webp",
+      "/images/projects/tmm-world/tmm2.webp"
+    ],
+    roles: ["Design", "Development"],
+    tools: ["Next JS", "Tailwind CSS", "Figma"],
+    timeline: "2 weeks",
+    type: "Client",
+    liveLink: "https://tmm-world.com",
+
+    problems: `The client envisioned an **[[Awwwards]]-level agency website** — wanting an expressive, dynamic digital presence that stands out with bold motion, high visual flair, and immersive layout transitions.
+## The Challenges
+- **No prior benchmark:** I hadn't built an [[Awwwards]]-style experimental website before, which meant stepping far outside standard web design patterns
+- **Performance bottlenecks:** Heavy scroll effects and multi-element animations caused significant lag and frame drops during early tests
+- **Cohesion vs. complexity:** Balancing distinct interactive sections without making the overall experience feel cluttered or unoptimized`,
+
+    solutions: `## Modular Deconstruction
+- Designed the core layout and typography systems in [[Figma]] before touching code
+- Divided the entire experience into self-contained sections, individual pages, and targeted animation layers — building each component in isolation before stitching them together
+- Rebuilt layout flows using [[Next.js]] and [[Tailwind CSS]] for crisp component architecture
+
+## Performance Optimization
+| Area | Action Taken | Result |
+| --- | --- | --- |
+| Component Slicing | Broke heavy pages into smaller sub-components | Clean render cycles, eliminated cascading re-renders |
+| Animation Tuning | Refactored animations to use GPU-accelerated transforms | Resolved severe lag, achieved smooth 60fps scrolling |
+| Asset Delivery | Lightweight modern styling via [[Tailwind CSS]] | Minimal bundle overhead and fast interactive load times |
+
+## Visual Impact
+- Combined bold agency typography with deliberate pacing and high-contrast dark aesthetics to deliver the ambitious visual identity the client wanted.`,
+
+    learnings: `## Technical & Creative Growth
+- **Break down the complex:** Tackling an ambitious [[Awwwards]]-level brief becomes straightforward when broken into atomic parts and assembled step by step
+- **Performance is part of design:** Stunning animations fail if they lag — optimizing render pipelines and animation lifecycles is just as crucial as visual styling
+- **Confidence with high-end motion:** Proved that stepping into unfamiliar creative territory leads to significant jumps in frontend capability
+
+## Future Enhancements
+- Experiment with [[WebGL]] and interactive shader backgrounds for deeper agency immersion
+- Introduce custom cursor trail interactions for desktop viewports`
+  },
+  {
+    id: "pan-stays",
+    title: "Pan Stays",
+    subtitle: "Airbnb Showcase Website",
+    category: ["Websites"],
+    thumbnail: "/images/projects/pan-stays/pan-stays-thumb.webp",
+    images: [
+      "/images/projects/pan-stays/pan-stays-thumb.webp",
+      "/images/projects/pan-stays/ps1.webp",
+      "/images/projects/pan-stays/ps2.webp"
+    ],
+    roles: ["Design", "Development"],
+    tools: ["Next JS", "Tailwind CSS", "Google Flow"],
+    timeline: "3 Days",
+    type: "Client",
+    liveLink: "https://panstays.vercel.app/",
+
+    problems: `Standard [[Airbnb]] property listings are often confined to generic, cluttered templates that make it hard for a unique stay to showcase its true atmosphere and character.
+## The Objective
+- Build a dedicated showcase website designed to present the [[Airbnb]] property in a **simpler, cleaner, and far more fun way**
+- Give prospective guests an immediate feel for the space, amenities, and vibe through thoughtful visuals and effortless navigation
+- Turn around a complete, production-ready web experience within a tight [[3-Day]] sprint`,
+
+    solutions: `## Experience-First Layout
+- Stripped away platform clutter to focus on what travelers care about most: immersive photography, essential amenities, and clear location highlights
+- Crafted a cheerful, welcoming aesthetic with high visual clarity and playful UI touches to make exploring the property fun and intuitive
+
+## Tech Stack & Execution
+| Layer | Choice | Advantage |
+| --- | --- | --- |
+| Framework | [[Next.js]] | Fast page transitions and instant edge deployment via [[Vercel]] |
+| Styling | [[Tailwind CSS]] | Rapid, responsive layout building and clean spacing |
+| Data / Logic | [[Google Flow]] | Simple, streamlined data flows for guest inquiry and information |
+
+## Rapid Delivery
+- Kept the UI architecture modular and focused, allowing complete design, coding, testing, and deployment to happen smoothly within 3 days.`,
+
+    learnings: `## Key Insights
+- **Simplicity elevates engagement:** Removing visual noise and presenting stay details in a fun, streamlined way creates a far better impression than dense listing pages
+- **Rapid sprint discipline:** A [[3-Day]] deadline demands razor-sharp focus on core user value — avoiding feature creep while maintaining design quality
+- **Standalone brand presence:** Having a dedicated custom website immediately elevates a rental stay from a generic listing to a memorable boutique brand
+
+## Future Enhancements
+- Integrate live availability calendars and instant inquiry booking integration
+- Add an interactive local area guide featuring nearby attractions and dining spots`
+  }
 ];
 
 export const categories = ["All", "Favourites", "Brand/Products", "Websites", "Design"];
