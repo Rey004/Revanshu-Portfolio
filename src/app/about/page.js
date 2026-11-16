@@ -101,18 +101,40 @@ export default function AboutPage() {
 
             {/* Resume Button & Social Icons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              {/* Resume Button */}
-              <a
-                href="/Revanshu_Resume.pdf"
-                download="Revanshu_Resume.pdf"
-                className="btn-resume inline-flex items-center gap-3 bg-[#d9d9d9] text-black text-xs font-extrabold px-6 py-3.5 rounded-lg active:scale-95"
+              {/* View Resume Button */}
+              <Link
+                href="/resume"
+                className="btn-resume inline-flex items-center gap-2.5 bg-[#d9d9d9] hover:bg-white text-black text-xs font-extrabold px-6 py-3.5 rounded-lg active:scale-95 transition-all shadow-md"
               >
-                <span>Download Resume</span>
+                <span>View Resume</span>
                 <svg
                   className="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth={2.5}
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                  />
+                </svg>
+              </Link>
+
+              {/* Direct Download Button */}
+              <a
+                href="/Revanshu_Resume.pdf"
+                download="Revanshu_Resume.pdf"
+                className="inline-flex items-center gap-2 border border-[#4d4d4d] hover:border-white text-[#d9d9d9] hover:text-white text-xs font-semibold px-5 py-3.5 rounded-lg active:scale-95 transition-all"
+                title="Download PDF directly"
+              >
+                <span>Download PDF</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
                   viewBox="0 0 24 24"
                 >
                   <path

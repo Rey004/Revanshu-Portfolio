@@ -85,11 +85,14 @@ export default function Navbar() {
               </a>
             </div>
             
-            {/* Resume Button - always visible beside hamburger */}
-            <a
-              href="/Revanshu_Resume.pdf"
-              download="Revanshu_Resume.pdf"
-              className="btn-resume inline-flex items-center gap-1.5 bg-[#d9d9d9] text-black text-[10px] md:text-xs font-extrabold px-3 py-1.5 md:px-4 md:py-2 rounded-lg active:scale-95 mr-1 md:mr-2"
+            {/* Resume Button - redirects to resume page */}
+            <Link
+              href="/resume"
+              className={`btn-resume inline-flex items-center gap-1.5 text-[10px] md:text-xs font-extrabold px-3 py-1.5 md:px-4 md:py-2 rounded-lg transition-all duration-300 active:scale-95 mr-1 md:mr-2 ${
+                pathname === "/resume"
+                  ? "bg-white text-black ring-2 ring-white/70 shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+                  : "bg-[#d9d9d9] hover:bg-white text-black"
+              }`}
             >
               <span>Resume</span>
               <svg
@@ -105,7 +108,7 @@ export default function Navbar() {
                   d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
                 />
               </svg>
-            </a>
+            </Link>
 
             {/* Hamburger Menu Button */}
             <button
@@ -197,10 +200,10 @@ export default function Navbar() {
             })}
 
             {/* Resume Button inside Hamburger Menu */}
-            <a
-              href="/Revanshu_Resume.pdf"
-              download="Revanshu_Resume.pdf"
-              className={`btn-resume mt-6 inline-flex items-center gap-2 bg-[#d9d9d9] text-black font-extrabold text-xs px-6 py-3 rounded-lg active:scale-95 ${isMenuOpen ? 'opacity-100 translate-y-0 delay-400' : 'opacity-0 translate-y-8'}`}
+            <Link
+              href="/resume"
+              onClick={() => setIsMenuOpen(false)}
+              className={`btn-resume mt-6 inline-flex items-center gap-2 bg-[#d9d9d9] hover:bg-white text-black font-extrabold text-xs px-6 py-3 rounded-lg active:scale-95 transition-all duration-300 ${isMenuOpen ? 'opacity-100 translate-y-0 delay-400' : 'opacity-0 translate-y-8'} ${pathname === "/resume" ? "ring-2 ring-white shadow-[0_0_15px_rgba(255,255,255,0.4)]" : ""}`}
             >
               <span>Resume</span>
               <svg
@@ -216,7 +219,7 @@ export default function Navbar() {
                   d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
 
           {/* Bottom Section - Social Icons */}
